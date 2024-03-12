@@ -27,9 +27,9 @@ Once the compilation is successful, run the executable:
 - # APPROACH
 
 - HTMLValidator.h: Header file for HTML validation functions.
-HTMLValidator.cpp: Source file containing the implementation of HTML validation functions.
-CSSValidator.h: Header file for CSS validation functions.
-CSSValidator.cpp: Source file containing the implementation of CSS validation functions.
-JSValidator.h: Header file for JavaScript validation functions.
-JSValidator.cpp: Source file containing the implementation of JavaScript validation functions.
-Main.cpp: Main file that contains the main function and uses the validation functions.
+- HTMLValidator.cpp: Source file containing the implementation of HTML validation functions.
+- CSSValidator.h: Header file for CSS validation functions.
+- CSSValidator.cpp: Source file containing the implementation of CSS validation functions.
+- JSValidator.h: Header file for JavaScript validation functions.
+- JSValidator.cpp: Source file containing the implementation of JavaScript validation functions.
+- Main.cpp: Main file that contains the main function and uses the validation functions.
