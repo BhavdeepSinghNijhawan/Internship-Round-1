@@ -24,7 +24,7 @@ Once the compilation is successful, run the executable:
 
 - If you want to test different HTML, CSS, or JavaScript code, you can modify the html_code, css_code, and js_code variables in the main function.
 
-- # APPROACH
+# APPROACH
 
 - HTMLValidator.h: Header file for HTML validation functions.
 - HTMLValidator.cpp: Source file containing the implementation of HTML validation functions.
