@@ -1,0 +1,97 @@
+/* Author: Bhavdeep Singh Nijhawan
+   Username: bhavdeepniwp79 */
+
+#include <iostream>
+#include <regex>
+#include <vector>
+#include <string>
+
+vector<string> validate_html(const string& html_code) {
+    vector<string> errors;
+
+    if (!regex_search(html_code, regex("<title>.*?</title>", regex_constants::icase))) {
+        errors.push_back("Missing <title> tag");
+    }
+
+    if (!regex_search(html_code, regex("<meta\\s+charset\\s*=\\s*[\"']utf-8[\"']\\s*/?>", regex_constants::icase))) {
+        errors.push_back("Missing <meta charset='utf-8'> tag");
+    }
+
+    if (!regex_search(html_code, regex("<meta\\s+name\\s*=\\s*[\"']description[\"']\\s+content\\s*=\\s*[\"'][^\"]*?[\"']\\s*/?>", regex_constants::icase))) {
+        errors.push_back("Missing <meta name='description'> tag");
+    }
+
+    if (!regex_search(html_code, regex("<meta\\s+name\\s*=\\s*[\"']keywords[\"']\\s+content\\s*=\\s*[\"'][^\"]*?[\"']\\s*/?>", regex_constants::icase))) {
+        errors.push_back("Missing <meta name='keywords'> tag");
+    }
+
+    if (!regex_search(html_code, regex("<link\\s+rel\\s*=\\s*[\"']stylesheet[\"']\\s+href\\s*=\\s*[\"'][^\"]*?[\"']\\s*/?>", regex_constants::icase))) {
+        errors.push_back("Missing <link rel='stylesheet'> tag");
+    }
+
+    return errors;
+}
+
+vector<string> validate_css(const string& css_code) {
+    vector<string> errors;
+    if (!regex_search(css_code, regex("\\w+\\s*\\{.*?\\}"))) {
+        errors.push_back("No CSS rules found");
+    }
+
+    return errors;
+}
+
+vector<string> validate_js(const string& js_code) {
+    vector<string> errors;
+    if (!regex_search(js_code, regex("function\\s+\\w+\\s*\\(\\)"))) {
+        errors.push_back("No JavaScript functions found");
+    }
+
+    return errors;
+}
+
+int main() {
+    string html_code = R"(
+        <html>
+        <head>
+            <title>Sample Page</title>
+            <meta charset='utf-8'>
+            <meta name='description' content='Sample Description'>
+            <meta name='keywords' content='sample, keywords'>
+            <link rel='stylesheet' href='styles.css'>
+        </head>
+        <body>
+            <h1>Hello, World!</h1>
+        </body>
+        </html>
+    )";
+    string css_code = R"(
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: blue;
+        }
+    )";
+    string js_code = R"(
+        function showMessage() {
+            alert('Hello, World!');
+        }
+    )";
+    vector<string> html_errors = validate_html(html_code);
+    vector<string> css_errors = validate_css(css_code);
+    vector<string> js_errors = validate_js(js_code);
+    cout << "HTML Errors:" << endl;
+    for (const auto& error : html_errors) {
+        cout << "- " << error << endl;
+    }
+    cout << "\nCSS Errors:" << endl;
+    for (const auto& error : css_errors) {
+        cout << "- " << error << endl;
+    }
+    cout << "\nJavaScript Errors:" << endl;
+    for (const auto& error : js_errors) {
+        cout << "- " << error << endl;
+    }
+    return 0;
+}
