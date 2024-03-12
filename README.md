@@ -33,3 +33,18 @@ Once the compilation is successful, run the executable:
 - JSValidator.h: Header file for JavaScript validation functions.
 - JSValidator.cpp: Source file containing the implementation of JavaScript validation functions.
 - Main.cpp: Main file that contains the main function and uses the validation functions.
+
+1. Check if HTML code contains a <title> tag.
+2. Check if HTML code contains a <meta charset> tag.
+3. Check if HTML code contains a <meta name="description"> tag.
+4. Check if HTML code contains a <meta name="keywords"> tag.
+5. Check if HTML code contains a <link rel="stylesheet"> tag.
+6. Check if CSS code contains at least one rule.
+7. Check if JavaScript code contains at least one function.
+8. Example HTML, CSS, and JavaScript code.
+9. Validate HTML, CSS, and JavaScript code.
+10. Print validation results.
+
+# Contributor
+
+- [Bhavdeep Singh Nijhawan](https://www.linkedin.com/in/bhavdeep-singh-nijhawan-739634280)
